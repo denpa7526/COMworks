@@ -28,6 +28,7 @@
 | first_name         | string  | null: false |
 | last_name          | string  | null: false |
 | username           | string  | null: false, unique: true |
+| company            | string  | null: false, unique: true |
 | phone_number       | string  | null: false |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false |
