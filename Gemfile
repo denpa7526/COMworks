@@ -79,6 +79,12 @@ group :production do
   gem 'pg'
 end
 
-gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'pry-rails'
+gem 'bcrypt', '~> 3.1.7' #パスワードの暗号化
+gem 'enum_help'          #enum管理を便利にする（役割管理用）
+gem 'rolify'             #役割管理（roleベースのアクセス制御）
+gem 'mini_magick'        #画像のリサイズや加工を行う（Attachmentsテーブルで使用）
+gem 'carrierwave'        #ファイルアップロード（Attachmentsテーブルで使用）
+
+gem 'rails-i18n'         #エラーメッセージの日本語化

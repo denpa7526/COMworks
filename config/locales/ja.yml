@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        first_name: 姓
+        last_name: 名
+        position: ポジション
+        phone_number: 電話番号
+      admin_user:
+        first_name: 姓
+        last_name: 名
+        position: ポジション
+        phone_number: 電話番号
+      room:
+        name: ルーム名
+        room_type: ルームタイプ
+      message:
+        text: テキスト
+        image: 画像
