@@ -4,10 +4,10 @@
 
 | Column             | Type    | Options     |
 |--------------------|---------|-------------|
-| first_name         | string  | null: false |
 | last_name          | string  | null: false |
+| first_name         | string  | null: false |
 | username           | string  | null: false, unique: true |
-| position           | string  |             |
+| position           | string  | null: false |
 | phone_number       | string  | null: false |
 | role               | integer | null: false |
 | email              | string  | null: false, unique: true |
@@ -25,8 +25,8 @@
 
 | Column             | Type    | Options     |
 |--------------------|---------|-------------|
-| first_name         | string  | null: false |
 | last_name          | string  | null: false |
+| first_name         | string  | null: false |
 | username           | string  | null: false, unique: true |
 | company            | string  | null: false, unique: true |
 | phone_number       | string  | null: false |

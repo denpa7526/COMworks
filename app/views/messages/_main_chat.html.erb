@@ -1,0 +1,74 @@
+<div class="chat-header">
+  <div class="left-header">
+    <div class="header-title">
+      <b>RoomName</b>
+    </div>
+  </div>
+  <div class="right-header">
+    <div class="header-button">
+      <a href="#"><b>DELETE</b></a>
+    </div>
+  </div>
+</div>
+
+<div class="messages">
+  <div class="message">
+    <div class="upper-message">
+      <div class="message-user">
+        <b>UserName01</b>
+      </div>
+      <div class="message-date">
+        2024/10/01(Tue) 10:43:30
+      </div>
+    </div>
+    <div class="lower-message">
+      <div class="message-content">
+        おはよう
+      </div>
+    </div>
+  </div>
+
+  <div class="message">
+    <div class="upper-message">
+      <div class="message-user">
+        <b>UserName02</b>
+      </div>
+      <div class="message-date">
+        2024/10/04(Fri) 18:47:30
+      </div>
+    </div>
+    <div class="lower-message">
+      <div class="message-content">
+        こんばんは
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const messages = document.querySelectorAll('.message');  //全ての .message-content を取得
+
+      messages.forEach(message => {
+        const content = message.querySelector('.message-content').textContent;  //メッセージの長さに基づいて横幅を計算（適宜調整）
+
+        const minWidth = 300;  //最小幅
+        const maxWidth = 800;  //最大幅
+        const calculatedWidth = Math.min(Math.max(content.length * 10, minWidth), maxWidth);
+
+        message.style.width = `${calculatedWidth}px`;  //横幅を設定
+      });
+    });
+  </script>
+
+</div>
+
+<div class="form">
+  <div class="form-input">
+    <input class="form-message" placeholder= "type a message">
+    <label class="form-attachment">
+      <span class="attachment-file">📁</span>
+      <input type="file" class="hidden">
+    </label>
+  </div>
+  <input class="form-submit" type="submit" value="SEND">
+</div>
