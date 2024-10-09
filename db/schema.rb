@@ -15,10 +15,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_08_152824) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "username", null: false
-    t.string "position"
+    t.string "position", null: false
     t.string "phone_number", null: false
     t.string "email", null: false
-    t.string "password_digest", null: false
+    t.string "encrypted_password", default: "", null: false
     t.integer "role", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -27,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_08_152824) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
