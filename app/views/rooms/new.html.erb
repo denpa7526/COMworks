@@ -1,0 +1,50 @@
+<div class='chat-room-form'>
+  <div class='chat-room-form--left chat-room-form__header'>
+    <h2>Create ChatRoom</h2>
+  </div>
+  <div class='chat-room-form--right'>
+    <%=form_with model: @room, local: true do |f|%>
+      <div class='chat-room-form__field'>
+        <div class='chat-room-form__field--left'>
+          <%= f.label :name, class: 'chat-room-form__label'%>
+        </div>
+        <div class='chat-room-form__field--right'>
+          <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+        </div>
+      </div>
+      <div class='chat-room-form__field'>
+        <div class='chat-room-form__field--left'>
+          <%= f.label :room_type, class: 'chat-room-form__label'%>
+        </div>
+        <div class='chat-room-form__field--right'>
+          <%= f.select :room_type, Room.room_types.keys.map { |room_type| [I18n.t("activerecord.enums.room.room_type.#{room_type}"), room_type] }, class: 'chat__room_type chat-room-form__input'%>
+        </div>
+      </div>
+
+      <div class='chat-room-form__field'>
+      </div>
+
+      <div class='chat-room-form__field'>
+        <div class='chat-room-form__field--left'>
+          <label class='chat-room-form__label' for='chat_room_メンバー'>メンバー</label>
+        </div>
+        <div class='chat-room-form__field--right'>
+          <select name="room[user_ids][]" multiple: true class='chat-room-form__input'>
+            <option value="">チャットするユーザーを選択してください</option>
+            <% User.where.not(id: current_user.id).each do |user| %>
+              <option value=<%= user.id %>><%= user.username %></option>
+            <% end %>
+          </select>
+          <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
+        </div>
+      </div>
+
+      <div class='chat-room-form__field'>
+        <div class='chat-room-form__field--left'></div>
+        <div class='chat-room-form__field--right'>
+          <%= f.submit "Create Room", class: 'chat-room-form__action-btn'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

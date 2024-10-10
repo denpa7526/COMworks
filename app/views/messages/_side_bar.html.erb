@@ -3,19 +3,34 @@
     <%= link_to current_user.full_name, edit_user_path(current_user) %>
   </div>
   <div class="create-room">
-    <a href="#"><b>＋Create Room</b></a>
+    <b><%= link_to "＋Create Room", new_room_path %></b>
   </div>
 </div>
 
 <div class="rooms">
-  <div class="room">
-    <div class="room-name">
-      <a href="#">Room 01</a>
-    </div>
-  </div>
-  <div class="room">
-    <div class="room-name">
-      <a href="#">Room 02</a>
-    </div>
-  </div>
+  <h2>Room List</h2>
+  <h1>社外用チャットルーム</h1>
+  <% if @public_rooms.present? %>
+    <% @public_rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <a href="#"><%= room.name %></a>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No public rooms available.</p>
+  <% end %>
+  <h1>プライベートチャットルーム</h1>
+  <% if @private_rooms.present? %>
+    <% @private_rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <a href="#"><%= room.name %></a>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No private rooms available.</p>
+  <% end %>
 </div>

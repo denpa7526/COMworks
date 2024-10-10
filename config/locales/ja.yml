@@ -5,6 +5,10 @@ ja:
         role:
           customer: お客様
           employee: 社員
+      room:
+        room_type:
+          private_room: プライベートチャットルーム
+          public_room: 社外用チャットルーム
     attributes:
       user:
         role: 属性
