@@ -15,10 +15,16 @@ class RoomsController < ApplicationController
       room_user_ids = room_params[:user_ids].reject(&:blank?)
       room_user_ids.unshift(current_user.id.to_s)
       room_user_ids.uniq.each do |user_id|
-        RoomUser.create(user_id: user_id, room: @room) if User.exists?(user_id)
+        if User.exists?(user_id)
+          RoomUser.create(user_id: user_id, room: @room)
+        else
+          # ここでユーザーIDが存在しない場合のログを追加するなどの対処を行う
+          Rails.logger.warn("User with ID #{user_id} does not exist.")
+        end
       end
       redirect_to root_path
     else
+      Rails.logger.debug @room.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
   end
