@@ -1,0 +1,22 @@
+<div class="side-bar-header">
+  <div class="header-name">
+    <%= link_to current_user.full_name, edit_user_path(current_user) %>
+  </div>
+  <div class="create-room">
+    <b><%= link_to "＋Create Room", new_room_path %></b>
+  </div>
+</div>
+
+<div class="rooms">
+<p>- Room List -</p>
+  <div class="room-type">
+  <p><b>社外用チャットルーム</b></p>
+    <% current_user.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name">
+          <%= link_to room.name, room_messages_path(room) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
