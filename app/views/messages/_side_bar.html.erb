@@ -1,6 +1,6 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <a href="#">FullName</a>
+    <%= link_to current_user.full_name, edit_user_path(current_user) %>
   </div>
   <div class="create-room">
     <b><a href="#">＋Create Room</a></b>
