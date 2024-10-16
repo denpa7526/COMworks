@@ -62,13 +62,14 @@
 
 </div>
 
-<%= form_with model: [@room, @message], html: {class: "form", multipart: true}, local: true do |f|%>
+
+<div class="form">
   <div class="form-input">
-    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+    <input class="form-message" placeholder= "メッセージを入力してください">
     <label class="form-attachment">
       <span class="attachment-file">📁</span>
-      <%= f.file_field :image, class: 'hidden' %>
+      <input type="file" class="hidden">
     </label>
   </div>
-  <%= f.submit 'SEND', class: 'form-submit' %>
-<% end %>
+  <input class="form-submit" type="submit" value="SEND">
+</div>
