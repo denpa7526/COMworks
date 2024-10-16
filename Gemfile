@@ -86,3 +86,4 @@ gem 'rubocop-factory_bot'
 gem 'devise'
 gem 'enum_help'          #enum管理を便利にする（役割管理用）
 gem 'rolify'             #役割管理（roleベースのアクセス制御）
+gem 'rails-i18n'

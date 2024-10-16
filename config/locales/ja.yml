@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    enums:
+      user:
+        role:
+          customer: お客様
+          employee: 社員
+      room:
+        room_type:
+          private_room: プライベートチャットルーム
+          public_room: 社外用チャットルーム
+    attributes:
+      user:
+        role: 属性
+        last_name: 姓
+        first_name: 名
+        username: ユーザー名
+        position: ポジション
+        phone_number: 電話番号
+        email: メールアドレス
+        shared_password: 社内共通パスワード
+      admin_user:
+        last_name: 姓
+        first_name: 名
+        position: ポジション
+        phone_number: 電話番号
+      shared_password:
+        shared_password: 社内共通パスワード
+      room:
+        name: ルーム名
+        room_type: ルームタイプ
+        user_ids: メンバー
+      message:
+        text: テキスト
+        image: 画像
