@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   enum role: { customer: 0, employee: 1 }
   
+
+  def full_name
+    "#{last_name} #{first_name}"
+  end
+
 end
