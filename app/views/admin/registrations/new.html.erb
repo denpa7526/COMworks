@@ -1,0 +1,33 @@
+<!-- app/views/admin/registrations/new.html.erb -->
+<h2>管理者アカウント登録</h2>
+
+<%= form_for(@admin_user, url: admin_registrations_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @admin_user %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin_code, "管理者登録コード" %><br />
+    <%= f.password_field :admin_code %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

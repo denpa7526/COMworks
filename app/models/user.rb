@@ -24,4 +24,8 @@ class User < ApplicationRecord
     "#{last_name} #{first_name}"
   end
 
+  # def employee?
+    # role == 1
+  # end
+
 end

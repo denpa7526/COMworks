@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_16_112410) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_16_131833) do
+  create_table "admin_users", charset: "utf8mb3", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "username", null: false
+    t.string "company", null: false
+    t.string "phone_number", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company"], name: "index_admin_users_on_company", unique: true
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["username"], name: "index_admin_users_on_username", unique: true
+  end
+
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
