@@ -7,14 +7,14 @@
     </div>
 
     <div class='sharedpassword-page__inner--right sharedpassword-form'>
-      <%= form_with model: [:admin, current_user.admin_user.company, @shared_password], local: true do |f| %>
+      <%= form_with model: @shared_password, url: admin_company_shared_password_path(current_user.admin_user.company), local: true do |f| %>
 
-        <%= render 'shared/error_messages', model: f.object %>
+        <%= render 'error_messages', model: f.object %>
 
         <div class='field'>
           <div class='field-label'>
             <%= f.label :password%>
-            <i>(8字以上／英大文字、英小文字、数字、記号、全てを1字以上含めること)</i>
+            <i>[8字以上／英大文字、英小文字、数字、記号、全てを1字以上含める]</i>
           </div>
           <div class='field-input'>
             <%= f.password_field :password, autocomplete: "new-password"%>

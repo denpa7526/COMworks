@@ -9,11 +9,9 @@ class AdminUser < ApplicationRecord
 
   with_options presence: true do
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'は10～11桁の半角数字でご入力ください' }
-    validates :password_digest, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/, message: 'は半角英数字混合かつ6字以上でご入力ください' }
+    validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}\z/, message: 'は半角英数字混合かつ6字以上でご入力ください' }
 
     with_options uniqueness: true do
-      validates :username
-      validates :company
       validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must contain @" }
     end
 

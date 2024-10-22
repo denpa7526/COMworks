@@ -24,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
 
+    resource.shared_password = shared_password
     resource.save
     yield resource if block_given?    #ブロックが与えられている場合、そのブロックを実行
 

@@ -3,7 +3,7 @@ class SharedPassword < ApplicationRecord
   belongs_to :company
 
   validates :password, presence: true, length: { minimum: 8 },
-    format: { with: /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!\"#$%&'()\-\^\\@\[;:,\.\/=~\|\`\{\+\*}\<>?_]]).{8,}\z/,
+    format: { with: /\A(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!\"#$%&'()\-\^\\@\[;:,\.\/=~\|\`\{\+\*}\<>?_]).{8,}\z/,
               message: 'は、それぞれ少なくとも1つの英大文字、英小文字、数字、記号を含み、8字以上でなければなりません'
   }
 

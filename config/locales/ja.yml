@@ -23,8 +23,10 @@ ja:
       admin_user:
         last_name: 姓
         first_name: 名
-        position: ポジション
         phone_number: 電話番号
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
       shared_password:
         shared_password: 社内共通パスワード
       room:
@@ -34,3 +36,12 @@ ja:
       message:
         text: テキスト
         image: 画像
+    errors:
+      models:
+        admin_user:
+          attributes:
+            admin_user: 管理者
+            admin_code: 管理者登録コード
+            email:
+              invalid: "無効なメールアドレスです"
+            password_digest: パスワード

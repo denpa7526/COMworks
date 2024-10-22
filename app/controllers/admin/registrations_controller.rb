@@ -8,7 +8,7 @@ class Admin::RegistrationsController < ApplicationController
   def create
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-      redirect_to new_admin_company_shared_password_path(@admin_user.company_id), notice: '管理者アカウントが作成されました。社内共通パスワードを設定してください。'
+      redirect_to new_admin_company_shared_password_path(@admin_user.company), notice: '管理者アカウントが作成されました。社内共通パスワードを設定してください。'
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,7 +20,7 @@ class Admin::RegistrationsController < ApplicationController
   private
 
   def admin_user_params
-    params.require(:admin_user).permit(:last_name, :first_name, :phone_number, :email, :password, :password_confirmation).merge(user_id: current_user.id, company_id: current_user.company_id)
+    params.require(:admin_user).permit(:last_name, :first_name, :phone_number, :email, :password, :password_confirmation, :admin_code).merge(user_id: current_user.id, company_id: current_user.company_id)
   end
 
   def authenticate_employee!

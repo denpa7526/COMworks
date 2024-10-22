@@ -14,7 +14,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :role %>
-              <i>(リストから選択してください)</i>
+              <i>[リストから選択してください]</i>
           </div>
           <div class='field-input'>
             <%= f.select :role, User.roles.keys.map { |role| [I18n.t("activerecord.enums.user.role.#{role}"), role] } %>
@@ -33,7 +33,7 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :password%>
-            <i>(6文字以上の半角英数字混合)</i>
+            <i>[6文字以上の半角英数字混合]</i>
           </div>
           <div class='field-input'>
             <%= f.password_field :password, autocomplete: "off"%>
@@ -43,7 +43,7 @@
         <div class='field' id="company-field" style="display: none;">
           <div class='field-label'>
             <%= f.label :company %>
-            <i>(正式名称でご入力ください)</i>
+            <i>[正式名称でご入力ください]</i>
           </div>
           <div class='field-input'>
             <%= f.text_field :company, placeholder:"例）株式会社○○" %>
