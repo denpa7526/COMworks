@@ -10,20 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_16_131833) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_21_064016) do
   create_table "admin_users", charset: "utf8mb3", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
-    t.string "username", null: false
-    t.string "company", null: false
     t.string "phone_number", null: false
     t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "password_digest", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company"], name: "index_admin_users_on_company", unique: true
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_admin_users_on_company_id"
     t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["username"], name: "index_admin_users_on_username", unique: true
+    t.index ["user_id"], name: "index_admin_users_on_user_id"
+  end
+
+  create_table "companies", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
+  end
+
+  create_table "shared_passwords", charset: "utf8mb3", force: :cascade do |t|
+    t.string "password_digest", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.boolean "initial", default: false, null: false
+    t.index ["company_id"], name: "index_shared_passwords_on_company_id"
+    t.index ["password_digest"], name: "index_shared_passwords_on_password_digest", unique: true
   end
 
   create_table "users", charset: "utf8mb3", force: :cascade do |t|
@@ -40,9 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_16_131833) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "admin_users", "companies"
+  add_foreign_key "admin_users", "users"
+  add_foreign_key "shared_passwords", "companies"
+  add_foreign_key "users", "companies"
 end

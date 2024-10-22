@@ -1,0 +1,41 @@
+<div class='sharedpassword-page' id='sharedpassword-page'>
+  <div class='sharedpassword-page__inner clearfix'>
+    <div class='sharedpassword-page__inner--left sharedpassword-page__header'>
+      <h2>Company Password</h2>
+      <h3><%= current_user.admin_user.company.name %></h3>
+      <h5>社内共通パスワードの作成</h5>
+    </div>
+
+    <div class='sharedpassword-page__inner--right sharedpassword-form'>
+      <%= form_with model: [:admin, current_user.admin_user.company, @shared_password], local: true do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password%>
+            <i>(8字以上／英大文字、英小文字、数字、記号、全てを1字以上含めること)</i>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password, autocomplete: "new-password"%>
+          </div>
+        </div>
+
+        <div class='field'>
+          <div class='field-label'>
+            <%= f.label :password_confirmation%>
+          </div>
+          <div class='field-input'>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password"%>
+          </div>
+        </div>
+
+        <div class='actions'>
+          <%= f.submit "Create Password", class: 'btn'%>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>

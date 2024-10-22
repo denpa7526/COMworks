@@ -54,8 +54,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'dotenv-rails'
 end
+
+gem 'dotenv-rails'  #開発環境かつ本番環境で '.env'ファイル を読み込む
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

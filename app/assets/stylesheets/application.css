@@ -17,3 +17,31 @@
 * {
   box-sizing: border-box;
 }
+
+.notice {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #B2CEE0;
+  border: 1px solid #A6BBCC;
+}
+.flash-notice {
+  margin: 10px 0;
+  padding: 10px;
+  color: #303D49;
+  font-weight: 600;
+}
+
+.alert {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #FFB8C2;
+  border: 1px solid #FF3C52;
+}
+.flash-alert {
+  margin: 10px 0;
+  padding: 10px;
+  color: #5D020A;
+  font-weight: 600;
+}

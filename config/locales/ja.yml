@@ -18,6 +18,7 @@ ja:
         position: ポジション
         phone_number: 電話番号
         email: メールアドレス
+        company: 会社名
         shared_password: 社内共通パスワード
       admin_user:
         last_name: 姓

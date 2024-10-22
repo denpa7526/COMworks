@@ -5,7 +5,7 @@ html, body {
   background-color: #1A1E22;
 }
 
-.account-page {
+.admin-account-page {
   padding: 60px;
   background-color: #1A1E22;
   min-height: 100vh;
@@ -13,7 +13,7 @@ html, body {
   margin: 0;
 }
 
-.account-page__inner {
+.admin-account-page__inner {
   width: 980px;
   margin: 60px auto;
   padding: 60px;
@@ -22,18 +22,18 @@ html, body {
   border-radius: 5px;
 }
 
-.account-page .account-page__inner .account-page__inner--left, .account-page .account-page__inner .account-page__inner--right {
+.admin-account-page .admin-account-page__inner .admin-account-page__inner--left, .admin-account-page .admin-account-page__inner .admin-account-page__inner--right {
   float: left;
   width: 50%;
 }
 
-.account-page .account-page__inner:after {
+.admin-account-page .admin-account-page__inner:after {
   clear: both;
   content: "";
   display: block;
 }
 
-.account-page .account-page__header h2 {
+.admin-account-page .admin-account-page__header h2 {
   margin-bottom: 10px;
   letter-spacing: 3px;
   font-size: 40px;
@@ -41,7 +41,7 @@ html, body {
   color: #FAFAFA;
 }
 
-.account-page .account-page__header h2:after {
+.admin-account-page .admin-account-page__header h2:after {
   content: "";
   display: block;
   width: 88px;
@@ -49,14 +49,14 @@ html, body {
   border-bottom: 4px double #5D020A;
 }
 
-.account-page .account-page__header h5 {
+.admin-account-page .admin-account-page__header h5 {
   margin-bottom: 20px;
   font-size: 14px;
   font-weight: 200;
   color: #617485;
 }
 
-.account-page .account-page__header .btn {
+.admin-account-page .admin-account-page__header .btn {
   margin-top: 20px;
   color: #C9C9C9;
   background-color: #303D49;
@@ -64,7 +64,7 @@ html, body {
   text-decoration: none;
 }
 
-.account-page .account-page__header .sub-link {
+.admin-account-page .admin-account-page__header .sub-link {
   display: block;
   margin-top: 20px;
   color: #617485;
@@ -72,29 +72,29 @@ html, body {
   text-decoration: none;
 }
 
-.account-page .field {
+.admin-account-page .field {
   margin-bottom: 10px;
   color: #B2CEE0;
 }
 
-.account-page .field .field-label {
+.admin-account-page .field .field-label {
   padding: 10px 0;
   letter-spacing: 1px;
   font-size: 14px;
   font-weight: 200;
 }
 
-.account-page .field .field-label i {
+.admin-account-page .field .field-label i {
   font-size: 11px;
 }
 
-.account-page .field .field-input input {
+.admin-account-page .field .field-input input {
   width: 100%;
   padding: 10px;
   letter-spacing: 1px;
 }
 
-.account-page .btn {
+.admin-account-page .btn {
   display: inline-block;
   height: 50px;
   padding: 0 30px;
@@ -105,36 +105,44 @@ html, body {
   border-radius: 2px;
 }
 
-.account-page input[type=submit] {
+.admin-account-page input[type=submit] {
   float: left;
   margin-top: 20px;
   color: #E9E9E9;
   background-color: #50B0FF;
 }
 
-.account-page select {
+.admin-account-page .dashboard-field {
+  margin-bottom: 10px;
+}
+
+.admin-account-page .dashboard-field .dashboard-label h4 {
+  padding: 10px 0;
+  color: #B2CEE0;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.admin-account-page .dashboard-field .dashboard-content p {
   width: 100%;
   padding: 10px;
-  border-radius: 2px;
+  color: #FAFAFA;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 300;
 }
 
-@media screen and (min-width: 768px) {
-  .account-page select {
-    -webkit-appearance: none;  /*ブラウザデフォルトのスタイルを無効化 Chrome,Safari用*/
-    -moz-appearance: none;     /*Firefox用*/
-    appearance: none;          /*その他ブラウザ用*/
-  }
-}
 
-.account-page .field-label .field_with_errors {
+.admin-account-page .field-label .field_with_errors {
   display: inline-block;
   color: #FF3C52;
   font-weight: 400;
 }
-.account-page .field-input .field_with_errors {
+.admin-account-page .field-input .field_with_errors {
   position: relative;
 }
-.account-page .field-input .field_with_errors:after {
+.admin-account-page .field-input .field_with_errors:after {
   content: "";
   display: block;
   position: absolute;
@@ -144,7 +152,6 @@ html, body {
   width: 5px;
   background-color: #5D020A;
 }
-
 #error_explanation {
   margin: 20px 0;
   padding: 20px 30px;
