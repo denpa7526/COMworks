@@ -2,20 +2,23 @@
 
 ## Usersテーブル
 
-| Column             | Type    | Options     |
-|--------------------|---------|-------------|
-| last_name          | string  | null: false |
-| first_name         | string  | null: false |
-| username           | string  | null: false, unique: true |
-| position           | string  | null: false |
-| phone_number       | string  | null: false |
-| role               | integer | null: false |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false |
+| Column             | Type       | Options     |
+|--------------------|------------|-------------|
+| last_name          | string     | null: false |
+| first_name         | string     | null: false |
+| username           | string     | null: false, unique: true |
+| position           | string     | null: false |
+| phone_number       | string     | null: false |
+| role               | integer    | null: false |
+| email              | string     | null: false, unique: true |
+| encrypted_password | string     | null: false |
+| company            | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_secure_password
+- has_one :admin_user
+- belongs_to :company, optional: true
 - has_many :room_users
 - has_many :rooms, through: :room_users
 - has_many :messages
@@ -23,33 +26,47 @@
 
 ## AdminUsersテーブル
 
-| Column             | Type    | Options     |
-|--------------------|---------|-------------|
-| last_name          | string  | null: false |
-| first_name         | string  | null: false |
-| username           | string  | null: false, unique: true |
-| company            | string  | null: false, unique: true |
-| phone_number       | string  | null: false |
-| email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false |
+| Column          | Type       | Options     |
+|-----------------|------------|-------------|
+| last_name       | string     | null: false |
+| first_name      | string     | null: false |
+| phone_number    | string     | null: false |
+| email           | string     | null: false, unique: true |
+| password_digest | string     | null: false |
+| user            | references | null: false, foreign_key: true |
+| company         | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_secure_password
-- has_one :shared_password
+- belongs_to :user
+- belongs_to :company
 
 
 ## SharedPasswordsテーブル
 
 | Column          | Type       | Options     |
 |-----------------|------------|-------------|
-| password_digest | string     | null: false |
-| admin_user      | references | null: false, foreign_key: true |
+| password_digest | string     | null: false, unique: true |
+| company         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :admin_user
 - has_secure_password
+- belongs_to :company
+
+
+## Companiesテーブル
+
+| Column     | Type       | Options     |
+|------------|------------|-------------|
+| name       | string     | null: false, unique: true |
+
+### Association
+
+- has_many :users
+- has_many :admin_users
+- has_one :shared_password
 
 
 ## Roomsテーブル

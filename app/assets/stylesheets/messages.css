@@ -40,7 +40,7 @@
 .rooms {
   background-color: #303D49;
   height: calc(100vh - 65px);
-  padding: 0 20px;
+  padding: 10px 20px;
   border-top: 8px solid #5D020A;
   border-right: 5px solid #5D020A;
   overflow: scroll;

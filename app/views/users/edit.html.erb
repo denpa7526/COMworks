@@ -5,10 +5,13 @@
       <h5>アカウントの編集</h5>
       <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn'%>
       <%= link_to "Return to Chat page", :back, class: 'btn'%>
+      <% if current_user.admin_user.present? %>
+        <%= link_to '>> 管理者画面へのログインはこちら', new_admin_session_path, class: 'sub-link' %>
+      <% end %>
     </div>
 
     <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
+      <%= form_with model: @user, local: true do |f|%>
 
         <div class='field'>
           <div class='field-label'>
@@ -22,20 +25,20 @@
         <div class='field'>
           <div class='field-label'>
             <%= f.label :position %>
-            <i>(会社名・事業部名・役職名など)</i>
+            <i>[会社名・事業部名・役職名など]</i>
           </div>
           <div class='field-input'>
-            <%= f.text_field :position, autofocus: true%>
+            <%= f.text_field :position%>
           </div>
         </div>
 
         <div class='field'>
           <div class='field-label'>
             <%= f.label :phone_number %>
-            <i>(ハイフンなし)</i>
+            <i>[ハイフンなし]</i>
           </div>
           <div class='field-input'>
-            <%= f.text_field :phone_number, autofocus: true, placeholder:"例）08012345678",maxlength:"11"%>
+            <%= f.text_field :phone_number, placeholder:"例）08012345678",maxlength:"11"%>
           </div>
         </div>
 

@@ -1,0 +1,46 @@
+<div class='admin-account-page' id='admin-account-page'>
+  <div class='admin-account-page__inner clearfix'>
+    <div class='admin-account-page__inner--left admin-account-page__header'>
+      <h2>Admin page</h2>
+      <h5>管理者専用ページ</h5>
+      <%= link_to "User Log-in", new_user_session_path, class: 'btn'%><br>
+      <%= link_to "Edit Company-Password", edit_admin_company_shared_password_path(@company), class: 'btn'%>
+      <a href="#" class="btn">Change Admin-User</a>
+    </div>
+
+    <div class='admin-account-page__inner--right dashboard'>
+
+      <div class='dashboard-field'>
+        <div class='dashboard-label'>
+          <h4>会社名</h4>
+        </div>
+        <div class='dashboard-content'>
+          <p><%= @company.name %></p>
+        </div>
+      </div>
+
+      <div class='dashboard-field'>
+        <div class='dashboard-label'>
+          <h4>管理者情報</h4>
+        </div>
+        <div class='dashboard-content'>
+          <p>名前： <%= @admin_user.full_name %></p>
+          <p>電話番号： <%= @admin_user.phone_number %></p>
+          <p>メールアドレス： <%= @admin_user.email %></p>
+        </div>
+      </div>
+
+      <div class='dashboard-field'>
+        <div class='dashboard-label'>
+          <h4>社内共通パスワード情報</h4>
+        </div>
+        <div class='dashboard-content'>
+          <p>パスワード： <%= @shared_password.password %></p>
+          <p>最終更新日： <%= @shared_password.updated_at.strftime('%Y年%m月%d日 %H:%M') %></p>
+        </div>
+      </div>
+
+    </div>
+  
+  </div>
+</div>

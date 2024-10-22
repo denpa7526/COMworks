@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def current_admin_user
+    @current_admin_user ||= current_user&.admin_user
+  end
+  helper_method :current_admin_user
 
   private
 

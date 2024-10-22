@@ -1,0 +1,176 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #1A1E22;
+}
+
+.admin-account-page {
+  padding: 60px;
+  background-color: #1A1E22;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+.admin-account-page__inner {
+  width: 80%;
+  margin: 60px auto;
+  padding: 60px;
+  background-color: #1A1E22;
+  border: 2px solid #303D49;
+  border-radius: 5px;
+}
+
+.admin-account-page .admin-account-page__inner .admin-account-page__inner--left, .admin-account-page .admin-account-page__inner .admin-account-page__inner--right {
+  float: left;
+  width: 50%;
+}
+
+.admin-account-page .admin-account-page__inner:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.admin-account-page .admin-account-page__header h2 {
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  font-size: 40px;
+  font-weight: 500;
+  color: #FAFAFA;
+}
+
+.admin-account-page .admin-account-page__header h2:after {
+  content: "";
+  display: block;
+  width: 88px;
+  margin-top: 5px;
+  border-bottom: 4px double #5D020A;
+}
+
+.admin-account-page .admin-account-page__header h5 {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 200;
+  color: #617485;
+}
+
+.admin-account-page .admin-account-page__header .btn {
+  margin-top: 20px;
+  color: #C9C9C9;
+  background-color: #303D49;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.admin-account-page .admin-account-page__header .sub-link {
+  display: block;
+  margin-top: 20px;
+  color: #617485;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.admin-account-page .field {
+  margin-bottom: 10px;
+  color: #B2CEE0;
+}
+
+.admin-account-page .field .field-label {
+  padding: 10px 0;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.admin-account-page .field .field-label i {
+  font-size: 11px;
+}
+
+.admin-account-page .field .field-input input {
+  width: 100%;
+  padding: 10px;
+  letter-spacing: 1px;
+}
+
+.admin-account-page .btn {
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
+  line-height: 50px;
+  letter-spacing: 1px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+}
+
+.admin-account-page input[type=submit] {
+  float: left;
+  margin-top: 20px;
+  color: #E9E9E9;
+  background-color: #50B0FF;
+}
+
+.admin-account-page .dashboard-field {
+  margin-bottom: 10px;
+}
+
+.admin-account-page .dashboard-field .dashboard-label h4 {
+  padding: 10px 0;
+  color: #B2CEE0;
+  letter-spacing: 1px;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.admin-account-page .dashboard-field .dashboard-content p {
+  width: 100%;
+  padding: 10px;
+  color: #FAFAFA;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+
+.admin-account-page .field-label .field_with_errors {
+  display: inline-block;
+  color: #FF3C52;
+  font-weight: 400;
+}
+.admin-account-page .field-input .field_with_errors {
+  position: relative;
+}
+.admin-account-page .field-input .field_with_errors:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #5D020A;
+}
+#error_explanation {
+  margin: 20px 0;
+  padding: 20px 30px;
+  border: 2px solid #303D49;
+  border-radius: 2px;
+}
+#error_explanation h2 {
+  margin-bottom: 10px;
+  color: #FF3C52;
+  font-size: 14px;
+}
+#error_explanation ul {
+  margin: 0;
+  padding-left: 17px;
+  list-style: square;
+}
+#error_explanation li {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #FF3C52;
+}
