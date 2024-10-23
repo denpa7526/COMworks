@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   root to: "messages#index"
 
   resources :users, only: [:edit, :update]
-
   namespace :admin do
     resources :registrations, only: [:new, :create, :destroy], path: 'sign_up'
     resources :sessions, only: [:new, :create, :destroy], path: 'sign_in'
@@ -14,5 +13,7 @@ Rails.application.routes.draw do
       resource :shared_password, only: [:new, :create, :edit, :update]
     end
   end
+
+  resources :rooms, only: [:new, :create]
 
 end
