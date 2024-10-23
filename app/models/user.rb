@@ -5,6 +5,8 @@ class User < ApplicationRecord
   attr_accessor :shared_password
   has_one :admin_user
   belongs_to :company, optional: true
+  has_many :room_users
+  has_many :rooms, through: :room_users
 
   enum role: { customer: 0, employee: 1 }
 
