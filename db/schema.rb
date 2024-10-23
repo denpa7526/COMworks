@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_10_21_064016) do
+ActiveRecord::Schema[7.0].define(version: 2024_10_23_052457) do
   create_table "admin_users", charset: "utf8mb3", force: :cascade do |t|
     t.string "last_name", null: false
     t.string "first_name", null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_21_064016) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_companies_on_name", unique: true
+  end
+
+  create_table "rooms", charset: "utf8mb3", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "room_type", null: false
+    t.bigint "created_by_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_by_id"], name: "index_rooms_on_created_by_id"
   end
 
   create_table "shared_passwords", charset: "utf8mb3", force: :cascade do |t|
@@ -66,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_10_21_064016) do
 
   add_foreign_key "admin_users", "companies"
   add_foreign_key "admin_users", "users"
+  add_foreign_key "rooms", "users", column: "created_by_id"
   add_foreign_key "shared_passwords", "companies"
   add_foreign_key "users", "companies"
 end
