@@ -29,6 +29,8 @@ ja:
         password_confirmation: パスワード（確認用）
       shared_password:
         shared_password: 社内共通パスワード
+        password: パスワード
+        password_confirmation: パスワード（確認用）
       room:
         name: ルーム名
         room_type: ルームタイプ
