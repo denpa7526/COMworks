@@ -31,7 +31,7 @@
         <div class='chat-room-form__field--right'>
           <select name="room[user_ids][]" class="chat-room-form__input">
             <option value="">▼ メンバーを選択してください</option>
-            <% User.where.not(id: current_user.id).each do |user| %>
+            <% @users.each do |user| %>
               <option value="<%= user.id %>"><%= user.username %></option>
             <% end %>
           </select>
